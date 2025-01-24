@@ -49,6 +49,7 @@
           flex-grow: 1;
 
           .board-column {
+              cursor: grab;
               transition: var(--transition);
               display: flex;
               flex-direction: column;

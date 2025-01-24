@@ -1,0 +1,15 @@
+<div class="tasks-container"
+  cdkDropList
+  [cdkDropListData]="column.items"
+  (cdkDropListDropped)="drop($event)"
+  [cdkDropListEnterPredicate]="onlyAcceptItems"
+>
+  <div
+    *ngFor="let item of column.items; index as itemIndex"
+    [cdkDragData]="{ type: 'item', column: colIndex, index: itemIndex }"
+    class="task"
+    cdkDrag
+  >
+    {{ item }}
+  </div>
+</div>

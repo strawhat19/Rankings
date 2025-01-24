@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Board, Column } from 'src/app/database/models/models.model';
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   standalone: false,
@@ -60,19 +60,10 @@ export class YTKanbanComponent {
     // Empty
   }
 
+  onlyAcceptColumns = (drag: CdkDrag, drop: CdkDropList) => drag.data?.type === `column`;
+
   ngOnInit() {
     // Empty
-  }
-
-  drop(event: CdkDragDrop<string[]> | any) {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      transferArrayItem(event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex);
-    }
   }
 
   dropColumn(event: CdkDragDrop<Column[]> | any) {
@@ -85,4 +76,18 @@ export class YTKanbanComponent {
       );
     }
   }
+
+  drop(event: CdkDragDrop<string[]> | any) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      console.log(`Outside Container`);
+      transferArrayItem(event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
+    }
+  }
+
+  onlyAcceptItems = (drag: CdkDrag, drop: CdkDropList) => drag.data?.type === `item`;
 }

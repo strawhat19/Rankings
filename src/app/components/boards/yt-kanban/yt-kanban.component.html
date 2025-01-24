@@ -18,10 +18,17 @@
     </div>
 
     <div class="board-wrapper">
-      <div class="board-columns" cdkDropList [cdkDropListData]="activeBoard.columns" (cdkDropListDropped)="dropColumn($event)">
+      <div
+        cdkDropList
+        class="board-columns"
+        [cdkDropListData]="activeBoard.columns"
+        (cdkDropListDropped)="dropColumn($event)"
+        [cdkDropListEnterPredicate]="onlyAcceptColumns"
+      >
 
         <div
-          *ngFor="let column of activeBoard.columns"
+          *ngFor="let column of activeBoard.columns; index as colIndex"
+          [cdkDragData]="{ type: 'column', index: colIndex }"
           class="board-column"
           cdkDrag
         >
@@ -29,20 +36,24 @@
             {{ column.name }}
           </div>
 
-          <div class="tasks-container"
-          cdkDropList
-          [cdkDropListData]="column.items"
-          (cdkDropListDropped)="drop($event)">
+          <!-- <app-items [column]="column" /> -->
 
+          <div class="tasks-container"
+            cdkDropList
+            [cdkDropListData]="column.items"
+            (cdkDropListDropped)="drop($event)"
+            [cdkDropListEnterPredicate]="onlyAcceptItems"
+          >
             <div
-              *ngFor="let item of column.items"
+              *ngFor="let item of column.items; index as itemIndex"
+              [cdkDragData]="{ type: 'item', column: colIndex, index: itemIndex }"
               class="task"
               cdkDrag
             >
               {{ item }}
             </div>
-
           </div>
+
         </div>
 
       </div>

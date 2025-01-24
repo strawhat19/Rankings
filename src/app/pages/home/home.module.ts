@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { HomePageRoutingModule } from './home-routing.module';
+import { ItemsComponent } from 'src/app/components/boards/yt-kanban/items/items.component';
 import { YTKanbanComponent } from 'src/app/components/boards/yt-kanban/yt-kanban.component';
 
 @NgModule({
@@ -15,7 +16,7 @@ import { YTKanbanComponent } from 'src/app/components/boards/yt-kanban/yt-kanban
     DragDropModule,
     HomePageRoutingModule,
   ],
-  declarations: [HomePage, YTKanbanComponent]
+  declarations: [HomePage, YTKanbanComponent, ItemsComponent]
 })
 
 export class HomePageModule {
