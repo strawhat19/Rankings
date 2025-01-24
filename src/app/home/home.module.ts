@@ -1,19 +1,23 @@
+import { HomePage } from './home.page';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { HomePage } from './home.page';
-
+import { CommonModule } from '@angular/common';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { HomePageRoutingModule } from './home-routing.module';
-
+import { KanbanBoardComponent } from '../kanban-board/kanban-board.component';
 
 @NgModule({
   imports: [
-    CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    CommonModule,
+    DragDropModule,
+    HomePageRoutingModule,
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, KanbanBoardComponent]
 })
-export class HomePageModule {}
+
+export class HomePageModule {
+
+}

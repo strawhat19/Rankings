@@ -1,0 +1,29 @@
+<div class="kanban-board">
+  <!-- Loop through each column -->
+  <div
+    class="kanban-column"
+    *ngFor="let column of columns; index as colIndex"
+    cdkDropList
+    [cdkDropListData]="column.items"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <!-- Column header with title and add button -->
+    <div class="column-header">
+      <h2>{{ column.title }}</h2>
+      <button class="add-btn" (click)="addItem(colIndex)">Add Task</button>
+    </div>
+
+    <!-- Loop through tasks in the current column -->
+    <div
+      class="kanban-card"
+      *ngFor="let item of column.items; index as itemIndex"
+      cdkDrag
+    >
+      {{ item }}
+      <!-- Delete button for each task -->
+      <button class="delete-btn" (click)="deleteItem(colIndex, itemIndex)">
+        &times;
+      </button>
+    </div>
+  </div>
+</div>
