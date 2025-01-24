@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { appTitle } from 'src/app/database/constants';
 
 @Component({
   standalone: false,
@@ -8,6 +9,7 @@ import { Component } from '@angular/core';
 })
 
 export class HomePage {
+  appTitle = appTitle;
   constructor(
     // Empty
   ) {

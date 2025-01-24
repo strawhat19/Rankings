@@ -1,3 +1,6 @@
+// Main
+export const appTitle = `Ranker`;
+
 // Environments
 export const showDevFeatures = true;
 export const urlHostIncludes = (string: string) => window.location.host.includes(string);

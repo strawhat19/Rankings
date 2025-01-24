@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { KanbanBoardComponent } from './kanban-board.component';
+import { YtKanbanComponent } from './yt-kanban.component';
 
-describe('KanbanBoardComponent', () => {
-  let component: KanbanBoardComponent;
-  let fixture: ComponentFixture<KanbanBoardComponent>;
+describe('YtKanbanComponent', () => {
+  let component: YtKanbanComponent;
+  let fixture: ComponentFixture<YtKanbanComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ KanbanBoardComponent ],
+      declarations: [ YtKanbanComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(KanbanBoardComponent);
+    fixture = TestBed.createComponent(YtKanbanComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
