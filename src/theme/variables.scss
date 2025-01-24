@@ -1,2 +1,4 @@
-// For information on how to create your own theme, please see:
-// http://ionicframework.com/docs/theming/
+:root {
+  --transition: 0.24s cubic-bezier(0.77, 0.2, 0.05, 1);
+  --altTransition: cubic-bezier(0.77, 0.2, 0.05, 1);
+}

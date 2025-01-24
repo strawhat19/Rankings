@@ -18,8 +18,13 @@
     </div>
 
     <div class="board-wrapper">
-      <div class="board-columns" cdkDropListGroup>
-        <div class="board-column" *ngFor="let column of activeBoard.columns">
+      <div class="board-columns" cdkDropList [cdkDropListData]="activeBoard.columns" (cdkDropListDropped)="dropColumn($event)">
+
+        <div
+          *ngFor="let column of activeBoard.columns"
+          class="board-column"
+          cdkDrag
+        >
           <div class="column-title">
             {{ column.name }}
           </div>
@@ -28,11 +33,18 @@
           cdkDropList
           [cdkDropListData]="column.items"
           (cdkDropListDropped)="drop($event)">
-            <div class="task" *ngFor="let item of column.items" cdkDrag>
+
+            <div
+              *ngFor="let item of column.items"
+              class="task"
+              cdkDrag
+            >
               {{ item }}
             </div>
+
           </div>
         </div>
+
       </div>
     </div>
   </div>

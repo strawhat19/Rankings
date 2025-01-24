@@ -74,4 +74,15 @@ export class YTKanbanComponent {
         event.currentIndex);
     }
   }
+
+  dropColumn(event: CdkDragDrop<Column[]> | any) {
+    if (event.previousContainer === event.container) {
+      // Reorder columns
+      moveItemInArray(
+        this.activeBoard.columns as Column[],
+        event.previousIndex,
+        event.currentIndex
+      );
+    }
+  }
 }

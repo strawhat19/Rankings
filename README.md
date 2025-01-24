@@ -19,7 +19,15 @@ Ranker - An Angular Ionic Typescript Sass Application
 ```bash
 npm install
 then
-npm run dev
+npm install -g @angular/cli
+then
+npm install -g @ionic/cli
+then
+npm install -g typescript
+then to create
+ionic start my-ionic-app blank --type=angular
+or to run
+ionic serve --external
 ```
 
 ## Licensing
